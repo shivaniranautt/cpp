@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C++ Notes by Shivani</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#f5f0e1,#e6d9c3);color:#111;transition:0.4s;}
+body.dark{background:#0f172a;color:#f8fafc;}
+
+.container{max-width:1100px;margin:auto;padding:60px 20px;}
+.page{display:none;}
+.page.active{display:block;}
+
+h1{font-size:3rem;font-weight:800;margin-bottom:20px;}
+h2{margin:25px 0 10px;}
+p{font-size:1.05rem;line-height:1.8;}
+
+button{background:linear-gradient(45deg,#111,#555);border:none;padding:14px 28px;font-size:16px;font-weight:bold;border-radius:30px;cursor:pointer;color:#fff;margin:10px;transition:0.3s;}
+.dark button{background:linear-gradient(45deg,#38bdf8,#0ea5e9);}
+
+.hero{display:flex;gap:40px;flex-wrap:wrap;}
+.hero-text{flex:1;}
+.hero-icons{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.icon-box{background:#fff;padding:30px;border-radius:20px;text-align:center;font-size:2.5rem;box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+.dark .icon-box{background:#1e293b;}
+
+.section{margin-top:50px;background:#fff;padding:40px;border-radius:25px;box-shadow:0 12px 30px rgba(0,0,0,0.2);}
+.dark .section{background:#1e293b;}
+
+.unit-container{display:flex;gap:30px;flex-wrap:wrap;margin-top:40px;}
+.unit-card{flex:1;min-width:260px;background:#fff;padding:30px;border-radius:20px;cursor:pointer;}
+.dark .unit-card{background:#1e293b;}
+
+.disclaimer{margin-top:50px;padding:20px;background:#fff3cd;border-left:6px solid #facc15;border-radius:10px;}
+.dark .disclaimer{background:#334155;color:#f8fafc;}
+
+#searchBar{margin:20px 0;padding:10px;width:100%;border-radius:8px;border:1px solid #ccc;font-size:16px;}
+</style>
+</head>
+
+<body>
+
+<div style="position:fixed;top:15px;right:15px;">
+  <button onclick="toggleDark()">🌙 Dark Mode</button>
+</div>
+
+<!-- HOME PAGE -->
+<div id="home" class="container page active">
+  <div class="hero">
+    <div class="hero-text">
+      <h1>C++ Notes by Shivani</h1>
+      <p>Detailed, exam-oriented C++ notes with free PDFs</p>
+      <!-- DOWNLOAD BUTTON -->
+      <button onclick="showPage('download')">Download Notes ⬇️</button>
+      <p><b>Instagram:</b> @c++shivani</p>
+    </div>
+    <div class="hero-icons">
+      <div class="icon-box">💻</div>
+      <div class="icon-box">📘</div>
+      <div class="icon-box">🧠</div>
+      <div class="icon-box">📄</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Why Our Website is Useful?</h2>
+    <p>
+      ✔ Covers full syllabus<br>
+      ✔ Long answers for exams<br>
+      ✔ Easy language<br>
+      ✔ Free downloadable PDFs<br>
+      ✔ Designed by a student
+    </p>
+  </div>
+
+  <div class="unit-container">
+    <div class="unit-card" onclick="openUnit('unit1Page')">
+      <h3>Unit 1: OOP Concepts</h3>
+    </div>
+    <div class="unit-card" onclick="openUnit('unit2Page')">
+      <h3>Unit 2: Constructors</h3>
+    </div>
+    <div class="unit-card" onclick="openUnit('unit3Page')">
+      <h3>Unit 3: Inheritance & Polymorphism</h3>
+    </div>
+  </div>
+</div>
+
+<!-- UNIT PAGES -->
+<div id="unit1Page" class="container page">
+  <h1>Unit 1: Object-Oriented Programming</h1>
+  <input type="text" id="searchBar1" placeholder="Search topics..." onkeyup="searchUnit('unit1')">
+
+  <div id="unit1Content">
+    <h2 id="intro">Introduction to OOP</h2>
+    <p>Object-Oriented Programming is a programming paradigm based on objects. It focuses on data rather than functions and improves reusability, security, and maintainability.</p>
+
+    <h2 id="classObj">Class and Object</h2>
+    <p>A class is a blueprint for creating objects. An object is an instance of a class and occupies memory.</p>
+
+    <h2 id="encapsulation">Encapsulation</h2>
+    <p>Encapsulation binds data and functions together and hides internal details using access specifiers.</p>
+
+    <h2 id="abstraction">Abstraction</h2>
+    <p>Abstraction shows only essential features and hides implementation details.</p>
+
+    <h2 id="inheritance">Inheritance</h2>
+    <p>Inheritance allows one class to acquire properties of another, promoting code reuse.</p>
+
+    <h2 id="polymorphism">Polymorphism</h2>
+    <p>Polymorphism allows one interface to have multiple forms.</p>
+  </div>
+
+  <div class="disclaimer">
+    ⚠️ To download this unit as a PDF, please use the Download Notes button on the Home page.
+  </div>
+  <button onclick="showPage('home')">⬅ Back</button>
+</div>
+
+<div id="unit2Page" class="container page">
+  <h1>Unit 2: Constructors and Destructors</h1>
+  <input type="text" id="searchBar2" placeholder="Search topics..." onkeyup="searchUnit('unit2')">
+  <div id="unit2Content">
+    <h2 id="constructor">Constructor</h2>
+    <p>A constructor is a special member function automatically called when an object is created.</p>
+
+    <h2 id="types">Types of Constructors</h2>
+    <p>Default, parameterized, copy, and dynamic constructors are used for initialization.</p>
+
+    <h2 id="destructor">Destructor</h2>
+    <p>A destructor releases memory and is called when an object is destroyed.</p>
+  </div>
+  <div class="disclaimer">
+    ⚠️ To download this unit as a PDF, please use the Download Notes button on the Home page.
+  </div>
+  <button onclick="showPage('home')">⬅ Back</button>
+</div>
+
+<div id="unit3Page" class="container page">
+  <h1>Unit 3: Inheritance and Polymorphism</h1>
+  <input type="text" id="searchBar3" placeholder="Search topics..." onkeyup="searchUnit('unit3')">
+  <div id="unit3Content">
+    <h2 id="inheritance3">Inheritance</h2>
+    <p>Inheritance allows derived classes to acquire properties of base classes.</p>
+
+    <h2 id="types3">Types of Inheritance</h2>
+    <p>Single, multiple, multilevel, hierarchical, hybrid inheritance.</p>
+
+    <h2 id="polymorphism3">Polymorphism</h2>
+    <p>Polymorphism allows same function names to behave differently.</p>
+
+    <h2 id="virtual">Virtual Functions</h2>
+    <p>Virtual functions support runtime polymorphism.</p>
+  </div>
+  <div class="disclaimer">
+    ⚠️ To download this unit as a PDF, please use the Download Notes button on the Home page.
+  </div>
+  <button onclick="showPage('home')">⬅ Back</button>
+</div>
+
+<!-- DOWNLOAD SELECT PAGE -->
+<div id="download" class="container page">
+  <h1>Select Unit to Download</h1>
+  <button onclick="selectUnit('unit1')">Unit 1 PDF</button>
+  <button onclick="selectUnit('unit2')">Unit 2 PDF</button>
+  <button onclick="selectUnit('unit3')">Unit 3 PDF</button>
+  <br><button onclick="showPage('home')">⬅ Back</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+let selectedUnit="";
+
+const units = {
+  unit1:{title:"Unit 1: OOP Concepts",topics:[
+    {title:"Introduction to OOP",content:"Object-Oriented Programming is a programming paradigm based on objects. It focuses on data rather than functions and improves reusability, security, and maintainability."},
+    {title:"Class and Object",content:"A class is a blueprint for creating objects. An object is an instance of a class and occupies memory."},
+    {title:"Encapsulation",content:"Encapsulation binds data and functions together and hides internal details using access specifiers."},
+    {title:"Abstraction",content:"Abstraction shows only essential features and hides implementation details."},
+    {title:"Inheritance",content:"Inheritance allows one class to acquire properties of another, promoting code reuse."},
+    {title:"Polymorphism",content:"Polymorphism allows one interface to have multiple forms."}
+  ]},
+  unit2:{title:"Unit 2: Constructors",topics:[
+    {title:"Constructor",content:"A constructor is a special member function automatically called when an object is created."},
+    {title:"Types of Constructors",content:"Default, parameterized, copy, and dynamic constructors are used for initialization."},
+    {title:"Destructor",content:"A destructor releases memory and is called when an object is destroyed."}
+  ]},
+  unit3:{title:"Unit 3: Inheritance & Polymorphism",topics:[
+    {title:"Inheritance",content:"Inheritance allows derived classes to acquire properties of base classes."},
+    {title:"Types of Inheritance",content:"Single, multiple, multilevel, hierarchical, hybrid inheritance."},
+    {title:"Polymorphism",content:"Polymorphism allows same function names to behave differently."},
+    {title:"Virtual Functions",content:"Virtual functions support runtime polymorphism."}
+  ]}
+};
+
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function openUnit(id){ showPage(id); }
+function toggleDark(){document.body.classList.toggle('dark');}
+
+function searchUnit(unit){
+  let input = document.getElementById("searchBar"+unit.slice(-1)).value.toLowerCase();
+  let contentDiv = document.getElementById(unit+"Content");
+  Array.from(contentDiv.children).forEach(el=>{
+    if(el.tagName==="H2" || el.tagName==="P"){
+      el.style.display = el.innerText.toLowerCase().includes(input)? "block":"none";
+    }
+  });
+}
+
+// Download flow
+function selectUnit(unitKey){
+  selectedUnit = unitKey;
+  downloadUnitPDF(unitKey);
+}
+
+// PDF generation
+function downloadUnitPDF(unitKey){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  const unit = units[unitKey];
+
+  doc.setFontSize(18);
+  doc.text(unit.title, 10, 20);
+
+  let y = 30;
+  unit.topics.forEach(topic => {
+    doc.setFontSize(14);
+    doc.text(topic.title, 10, y);
+    y += 8;
+    doc.setFontSize(12);
+    const lines = doc.splitTextToSize(topic.content, 180); 
+    doc.text(lines, 10, y);
+    y += lines.length * 6 + 6;
+
+    if (y > 280) {
+      doc.addPage();
+      y = 20;
+    }
+  });
+
+  doc.save(unit.title + ".pdf");
+}
+</script>
+
+</body>
+</html>
